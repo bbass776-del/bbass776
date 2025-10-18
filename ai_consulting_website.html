@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Консультант - AI Консультаційні Послуги для ФОП</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #1a1a1a;
+            border-bottom: 3px solid #0052a3;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #0052a3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 82, 163, 0.05), rgba(0, 82, 163, 0.05)), #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 5rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #4a4a4a;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0052a3;
+            color: white;
+            padding: 1rem 3rem;
+            border: 2px solid #0052a3;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #0052a3;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border: 1px solid #e0e0e0;
+            transition: border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #0052a3;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #0052a3;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card p {
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        /* Agents Section */
+        .agents {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .agent-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .agent-card:hover {
+            border-color: #0052a3;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .agent-icon {
+            width: 70px;
+            height: 70px;
+            background: #0052a3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .agent-card h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .agent-card p {
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .agent-button {
+            display: inline-block;
+            background: #0052a3;
+            color: white;
+            padding: 0.9rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border: 2px solid #0052a3;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .agent-button:hover {
+            background: #003d7a;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #0052a3;
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .social-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            border: 2px solid #1a1a1a;
+        }
+
+        .social-link:hover {
+            background: transparent;
+            color: #1a1a1a;
+        }
+
+        /* Chat Modal */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .chat-modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .chat-container {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            max-height: 700px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #0052a3;
+        }
+
+        .chat-header h3 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chat-agent-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chat-agent-icon {
+            width: 40px;
+            height: 40px;
+            background: #0052a3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .close-chat {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-chat:hover {
+            background: white;
+            color: #1a1a1a;
+        }
+
+        .chat-iframe-container {
+            flex: 1;
+            border: none;
+            background: #f8f9fa;
+        }
+
+        .chat-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 3px solid #0052a3;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #1a1a1a;
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 2px solid #0052a3;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-container {
+                width: 95%;
+                height: 90vh;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Консультант для ФОП</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showPage('home')">Головна</a></li>
+                <li><a onclick="showPage('agents')">Консультанти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page">
+        <section class="hero">
+            <div class="container">
+                <h1>Професійні консультації для ФОП<br>на основі штучного інтелекту</h1>
+                <p>Експертна підтримка 24/7 від спеціалізованих AI-консультантів для вирішення ваших бізнес-завдань як фізичної особи-підприємця</p>
+                <button class="cta-button" onclick="showPage('agents')">Обрати консультанта</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Наші переваги</h2>
+                <p class="section-subtitle">Сучасні технології на службі вашого бізнесу</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Оперативність</h3>
+                        <p>Цілодобовий доступ до консультаційних послуг без черг і очікування. Отримуйте професійні рекомендації в режимі реального часу.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Експертиза для ФОП</h3>
+                        <p>Консультації спеціально адаптовані для фізичних осіб-підприємців. Базуються на актуальному законодавстві та практиках ведення бізнесу ФОП.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Конфіденційність</h3>
+                        <p>Повна анонімність та захист персональних даних. Дотримання стандартів інформаційної безпеки та GDPR.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Agents Page -->
+    <div id="agents" class="page hidden">
+        <section class="agents">
+            <div class="container">
+                <h2 class="section-title">AI-консультанти для ФОП</h2>
+                <p class="section-subtitle">Професійна допомога у ключових напрямках</p>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-icon">⚖️</div>
+                            <h3>Юридичний<br>консультант</h3>
+                        </div>
+                        <p>Кваліфікована юридична підтримка з питань законодавства для ФОП, договірного права, реєстрації підприємницької діяльності та правового супроводу вашого бізнесу.</p>
+                        <button class="agent-button" onclick="openChat('juridical', 'Юридичний консультант', '⚖️')">Розпочати консультацію</button>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-icon">💼</div>
+                            <h3>Бухгалтер<br>консультант</h3>
+                        </div>
+                        <p>Експертна допомога з бухгалтерського обліку для ФОП, звітності, вибору системи оподаткування, єдиного податку та оптимізації фінансових процесів вашого бізнесу.</p>
+                        <button class="agent-button" onclick="openChat('accounting', 'Бухгалтер консультант', '💼')">Розпочати консультацію</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page REMOVED -->
+
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-agent-info">
+                    <div class="chat-agent-icon" id="chatAgentIcon">💼</div>
+                    <h3 id="chatAgentName">Консультант</h3>
+                </div>
+                <button class="close-chat" onclick="closeChat()">✕</button>
+            </div>
+            <div class="chat-iframe-container">
+                <iframe id="chatIframe" class="chat-iframe" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 КОНСУЛЬТАНТ ДЛЯ ФОП. УСІ ПРАВА ЗАХИЩЕНІ.</p>
+        </div>
+    </footer>
+
+    <script>
+        // URL вебхуків n8n для кожного агента з привітальним повідомленням
+        const agentUrls = {
+            juridical: 'https://n8n.bbass776.space/webhook/3c82fc5e-8223-4ff3-a32c-fda5b8083121/chat?greeting=Привіт!%20Чим%20можу%20допомогти?',
+            accounting: 'https://n8n.bbass776.space/webhook/d20166a6-f9dd-4ed0-9e35-65db6edb374f/chat?greeting=Привіт!%20Чим%20можу%20допомогти?'
+        };
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.add('hidden'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+            
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+            }
+        }
+
+        function openChat(agentType, agentName, agentIcon) {
+            const modal = document.getElementById('chatModal');
+            const iframe = document.getElementById('chatIframe');
+            const nameElement = document.getElementById('chatAgentName');
+            const iconElement = document.getElementById('chatAgentIcon');
+            
+            // Встановлюємо URL вебхука з привітальним повідомленням
+            iframe.src = agentUrls[agentType];
+            
+            // Встановлюємо ім'я та іконку агента
+            nameElement.textContent = agentName;
+            iconElement.textContent = agentIcon;
+            
+            // Показуємо модальне вікно
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeChat() {
+            const modal = document.getElementById('chatModal');
+            const iframe = document.getElementById('chatIframe');
+            
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Закриття модального вікна при кліку поза контейнером
+        document.getElementById('chatModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeChat();
+            }
+        });
+
+        // Закриття модального вікна клавішею ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeChat();
+            }
+        });
+
+        // Глобальні функції
+        window.showPage = showPage;
+        window.openChat = openChat;
+        window.closeChat = closeChat;
+        window.toggleMenu = toggleMenu;
+    </script>
+</body>
+</html>
